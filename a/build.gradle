@@ -1,0 +1,8 @@
+configurations {
+  projectA
+}
+
+dependencies {
+  projectA 'backport-util-concurrent:backport-util-concurrent:3.1'
+  projectA 'backport-util-concurrent:backport-util-concurrent-java12:3.1'
+}

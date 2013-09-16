@@ -1,0 +1,17 @@
+import static org.gradle.api.specs.Specs.SATISFIES_ALL
+
+subprojects {
+  repositories {
+    mavenCentral()
+  }
+  
+  task printDependencies() << {
+    def declared = project.configurations.collectMany { it.allDependencies }
+    def conf = project.configurations.detachedConfiguration(declared as Dependency[])
+    def resolved = conf.resolvedConfiguration.getFirstLevelModuleDependencies(SATISFIES_ALL)
+    println "$project.name) Delcared:"
+    declared.each { println " - $it" }
+    println "$project.name) Resolved:"
+    resolved.each { println " - $it" }
+  }
+}

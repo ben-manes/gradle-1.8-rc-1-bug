@@ -1,0 +1,8 @@
+configurations {
+  projectB
+}
+
+dependencies {
+  projectB 'com.google.inject:guice:2.0'
+  projectB 'com.google.inject.extensions:guice-multibindings:2.0'
+}
